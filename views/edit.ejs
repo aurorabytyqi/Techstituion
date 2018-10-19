@@ -1,0 +1,83 @@
+<% include partials/header %>
+
+<h3>Ndrysho të dhënat</h3>
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+	 <br>
+	 <p style="font-size:24"><b>Prokurorimi:</b></p>
+	   
+	   <form method="POST" action="/todos/update/<%= doc._id %>">
+	     <div class="form-row">
+		     <div class="form-group col-md-6">
+			     <label for="nrRendor">Nr. rendor i prokurorimit</label>
+				 <input type="number" class="form-control" name="rendor" value="<%= doc.rendor %>" id="nrRendor" placeholder="Nr. rendor i prokurorimit"  required>
+			 </div>	
+			 <div class="form-group col-md-6">
+			     <label for="lloji">Lloji i prokurorimit</label>
+    			 <input type="text" class="form-control" name="lloji" value="<%= doc.lloji %>" id="lloji" placeholder="Lloji i prokurorimit" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="aktiviteti">Aktiviteti i prokurorimit</label>
+	     	 <input type="text" class="form-control" name="aktiviteti" value="<%= doc.aktiviteti %>" id="aktiviteti" placeholder="Aktiviteti i prokurorimit" required>
+		 </div>
+		 <br>
+		 <p style="font-size:24"><b>Datat:</b></p>
+		 <div class="form-row">
+		     <div class="form-group col-sm-6">
+			     <label for="inicimi">Data e inicimit të aktivitetit të prokurorimit</label>
+				 <input type="date" class="form-control" name="inicimi" value="<%= doc.inicimi %>" id="inicimi" required>
+			 </div>
+			 <!--<script type="text/javascript">$(function(){$('#inicimi').datetimepicker();}); </script>-->
+			 
+			 <div class="form-group col-md-6">
+			     <label for="publikimi">Data e publikimit të <br>shpalljes</label>
+    			 <input type="date" class="form-control" name="publikimi" value="<%= doc.publikimi %>" id="publikimi" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="nenshkrimi">Data e nënshkrimit të kontratës</label>
+	     	 <input type="date" class="form-control" name="nenshkrimi" value="<%= doc.nenshkrimi %>" id="nenshkrimi" required>
+		 </div>
+		 <p>Afatet për implementimin e kontratës</p>
+		 <div class="form-row">
+		     <div class="form-group col-md-6">
+				 <input type="date" name="afati1" value="<%= doc.afati1 %>" class="form-control" required>
+			 </div>
+			 <div class="form-group col-md-6">
+    			 <input type="date" name="afati2" value="<%= doc.afati2 %>" class="form-control">
+			 </div>
+	     </div>
+		 <div class="form-group">
+		     <label for="permbyllja">Data e përmbylljes së kontratës (data e pranimit <br>të përkohshëm/preliminar)</label>
+	     	 <input type="date" class="form-control" name="permbyllja" value="<%= doc.permbyllja %>" id="permbyllja" required>
+		 </div>
+		 <br>
+		 <p style="font-size:24"><b>Çmimi dhe të dhënat e tjera:</b></p>
+		 <div class="form-row">
+		     <div class="form-group col-md-6">
+			     <label for="cmimi">Çmimi i kontratës(duke përfshirë të gjitha taksat)</label>
+				 <input type="number" class="form-control" name="cmimi" value="<%= doc.cmimi %>" id="cmimi" placeholder="Çmimi i kontratës" required>
+			 </div>
+			 <div class="form-group col-md-6">
+			     <label for="totali">Çmimi total i paguar <br>për kontratën</label>
+    			 <input type="number" class="form-control" name="totali" value="<%= doc.totali %>" id="totali" placeholder="Çmimi total" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="emri">Emri i të cilit i është dhënë kontrata</label>
+	     	 <input type="name" class="form-control" name="emri" value="<%= doc.emri %>" id="emri" placeholder="Emri dhe mbiemri" required>
+		 </div>
+		 <div class="form-row">
+		 <div class="btn col-md-12">
+		 <button type="submit" class="btn btn-primary btn-block">Ndrysho</button>
+		 </div>
+		 </div>	 
+	 </form>
+	
+    </div>
+  </div>
+</div>
+
+<% include partials/footer %>

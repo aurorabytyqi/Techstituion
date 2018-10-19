@@ -1,0 +1,140 @@
+<% include partials/header %>
+
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+	 <h3 style="color:rgb(1,139,255)">Shto kontratën e re</h3>
+	 <br>
+	 <p style="font-size:24"><b>Prokurorimi:</b></p>
+	   
+	   <form method="POST" action="/todos/add">
+	     <div class="form-row">
+		     <div class="form-group col-md-6">
+			     <label for="nrRendor">Nr. rendor i prokurorimit</label>
+				 <input type="number" class="form-control" name="rendor" id="nrRendor" placeholder="Nr. rendor i prokurorimit" required>
+			 </div>	
+			 <div class="form-group col-md-6">
+			     <label for="lloji">Lloji i prokurorimit</label>
+    			 <input type="text" class="form-control" name="lloji" id="lloji" placeholder="Lloji i prokurorimit" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="aktiviteti">Aktiviteti i prokurorimit</label>
+	     	 <input type="text" class="form-control" name="aktiviteti" id="aktiviteti" placeholder="Aktiviteti i prokurorimit" required>
+		 </div>
+		 <br>
+		 <p style="font-size:24"><b>Datat:</b></p>
+		 <div class="form-row">
+		     <div class="form-group col-sm-6">
+			     <label for="inicimi">Data e inicimit të aktivitetit të prokurorimit</label>
+				 <input type="date" class="form-control" name="inicimi" id="inicimi" required>
+			 </div>
+			 <!--<script type="text/javascript">$(function(){$('#inicimi').datetimepicker();}); </script>-->
+			 
+			 <div class="form-group col-md-6">
+			     <label for="publikimi">Data e publikimit të <br>shpalljes</label>
+    			 <input type="date" class="form-control" name="publikimi" id="publikimi" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="nenshkrimi">Data e nënshkrimit të kontratës</label>
+	     	 <input type="date" class="form-control" name="nenshkrimi" id="nenshkrimi" required>
+		 </div>
+		 <p>Afatet për implementimin e kontratës</p>
+		 <div class="form-row">
+		     <div class="form-group col-md-6">
+				 <input type="date" name="afati1" class="form-control" required>
+			 </div>
+			 <div class="form-group col-md-6">
+    			 <input type="date" name="afati2" class="form-control">
+			 </div>
+	     </div>
+		 <div class="form-group">
+		     <label for="permbyllja">Data e përmbylljes së kontratës (data e pranimit <br>të përkohshëm/preliminar)</label>
+	     	 <input type="date" class="form-control" name="permbyllja" id="permbyllja" required>
+		 </div>
+		 <br>
+		 <p style="font-size:24"><b>Çmimi dhe të dhënat e tjera:</b></p>
+		 <div class="form-row">
+		     <div class="form-group col-md-6">
+			     <label for="cmimi">Çmimi i kontratës(duke përfshirë të gjitha taksat)</label>
+				 <input type="number" class="form-control" name="cmimi" id="cmimi" placeholder="Çmimi i kontratës" required>
+			 </div>
+			 <div class="form-group col-md-6">
+			     <label for="totali">Çmimi total i paguar <br>për kontratën</label>
+    			 <input type="number" class="form-control" name="totali" id="totali" placeholder="Çmimi total" required>
+			 </div>
+	     </div>
+	     <div class="form-group">
+		     <label for="emri">Emri i të cilit i është dhënë kontrata</label>
+	     	 <input type="name" class="form-control" name="emri" id="emri" placeholder="Emri dhe mbiemri" required>
+		 </div>
+		 <div class="form-row">
+		 <div class="btn col-md-6">
+		 <button type="submit" class="btn btn-primary btn-block">Dërgo</button>
+		 </div>
+		 <div class="btn col-md-6">
+		 <button type="reset" class="btn btn-secondary btn-block">Fshij</button>
+		 </div>
+		 </div>	 
+	 </form>
+	
+    </div>
+  </div>
+</div>
+
+<br>
+<hr>
+
+<% docs.map(function(doc){ %>
+<h4>Të dhënat e ruajtura</h4>
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead class="thead-light">
+	  <tr>
+	     <th>Nr. rendor i prokurorimit</th>
+		 <th>Lloji i prokurorimit</th>
+		 <th>Aktiviteti i prokurorimit</th>
+	  
+	     <th>Data e inicimit të aktivitetit të prokurorimit</th>
+		 <th>Data e publikimit të shpalljes</th>
+		 <th>Data e nënshkrimit të kontratës</th>
+		 <th>Afatet për implementimin e kontratës</th>
+		 <th>Data e përmbylljes së kontratës</th>
+	  
+	     <th>Çmimi i kontratës €</th>
+		 <th>Çmimi total i paguar për kontratën €</th>
+		 <th>Emri i të cilit i është dhënë kontrata</th>
+		 
+		 <th colspan="2">Ndrysho!</th>
+		 
+	  </tr>
+	  </thead>
+	  <tbody>
+
+	  <tr>
+	     <td><%= doc.rendor%></td>
+		 <td><%= doc.lloji%></td>
+		 <td><%= doc.aktiviteti%></td>
+		 <td><%= doc.inicimi%></td>
+		 <td><%= doc.publikimi%></td>
+		 <td><%= doc.nenshkrimi%></td>
+		 <td><%= doc.afati1%> <br> <%= doc.afati2%></td>
+		 <td><%= doc.permbyllja%></td>
+		 <td><%= doc.cmimi%></td>
+		 <td><%= doc.totali%></td>
+		 <td><%= doc.emri%></td>
+	        <td>
+			<a class="badge badge-secondary" href="/todos/edit/<%= doc._id%>" role="button">Ndrysho</a>
+			</td>
+			<td>
+			<a class="badge badge-danger" href="/todos/delete/<%= doc._id%>" role="button">Fshij</a>
+	        </td>
+	  </tr>
+	</tbody>
+	</table>
+	</div>
+<% }) %>
+
+
+<% include partials/footer %>
