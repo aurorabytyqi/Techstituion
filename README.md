@@ -24,4 +24,6 @@ Creating a form for adding new contracts, getting input form user, save on datab
     <li>npm install body-parser --save</li>
   </ul>
   <p>Write the exact code in the files</p>
+  
+  <p>The code will be updated as soon as possible :D</p>
     </html>
